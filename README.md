@@ -6,6 +6,6 @@
 
 #目录介绍
 
-*class-object   -----   对象与类
-*design-mode    -----   模式实例
+* class-object   -----   对象与类
+* design-mode    -----   模式实例
 
