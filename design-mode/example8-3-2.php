@@ -6,7 +6,7 @@
  * Time: 16:53
  */
 
-require_once "example8-2-2.php";
+//require_once "example8-2-2.php";
 
 abstract class Notifier {
     static function getNotifier(){
@@ -20,6 +20,7 @@ abstract class Notifier {
         }
     }
     abstract  function  inform($message);
+    
 }
 
 class MailNotifier extends Notifier{

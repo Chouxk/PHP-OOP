@@ -7,16 +7,18 @@
  */
 
 /*
- * lesson 课、类
+ * 
  * */
 abstract class Lesson{
     private  $costStrategy;//费用策略
     private $duration; //时间
 
+    //初始化
     function __construct( $duration,CostStrategy $strategy){
         $this->duration=$duration;
         $this->costStrategy = $strategy;
     }
+
     function cost(){
         return $this->costStrategy->cost($this);
     }
@@ -28,6 +30,7 @@ abstract class Lesson{
     }
 
 }
+
 /*
  * CostStrategy 抽象类
  * */
