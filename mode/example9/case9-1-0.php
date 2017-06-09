@@ -2,8 +2,6 @@
 /**
  * Created by PhpStorm.
  * User: M
- * Date: 2017/5/12
- * Time: 17:42
  */
 
 /*
