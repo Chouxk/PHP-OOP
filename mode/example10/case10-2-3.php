@@ -5,7 +5,14 @@
  * Date: 2017/5/16
  * Time: 11:21
  */
+/*
+ * 探知 - 组合模式3
+ * */
 
+/**
+ * Class Unit
+ * 单元抽象基类
+ */
 abstract class Unit{
     function getComposite(){
         return null;

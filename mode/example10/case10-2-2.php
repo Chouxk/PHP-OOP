@@ -7,8 +7,14 @@
  */
 
 /*
- * 单元基类
+ * 探知 - 组合模式2
  * */
+
+/**
+ * Class Unit
+ * 单元 抽象基类
+ * 公共方法
+ */
 abstract class Unit{
      function addUnit(Unit $unit){
         throw new UnitException(get_class($this).'is a leaf');
@@ -21,23 +27,30 @@ abstract class Unit{
 
 class UnitException extends Exception {}
 
-/*
- * 射手
- * */
+/**
+ * Class Archer
+ * 弓箭手
+ */
 class Archer extends Unit{
     function bombardStrength(){
         return 4;
     }
 }
-/*
+
+/**
+ * Class laser
  * 激光炮
- * */
+ */
 class laser extends Unit{
     function bombardStrength(){
         return 40;
     }
 }
 
+/**
+ * Class Army
+ * 陆军
+ */
 class Army extends Unit{
     private $units = array();
 
@@ -76,18 +89,31 @@ class Army extends Unit{
 $t = new Army();
 $t->addUnit(new Archer());
 $t->addUnit(new laser());
-//$t->removeUnit(new laser());
-//$t->removeUnit(new Archer());
-print  $t->bombardStrength();
 
-/*
+$s = new Army();
+$s->addUnit(new Archer());
+$s->addUnit(new Archer());
+$s->addUnit(new Archer());
+
+$t->addUnit($s);
+
+//所有攻击强度计算
+print "{$t->bombardStrength()}\n";
+
+/**
+ * Class test
  * 匿名回调函数
- * */
+ */
 class test {
     public $v;
     function __construct($a,$b)
     {
-        $this->v=(function($a,$b){ return ($a === $b)?0:1;});
+        $this->v = (
+        function($a,$b)
+            {
+                return ($a === $b)?0:1;
+            }
+        );
     }
 
     public function getV()
@@ -96,5 +122,9 @@ class test {
     }
 }
 
+//array get_object_vars ( object $obj )
+//返回由 obj 指定的对象中定义的属性组成的关联数组。
+
 //$n = new test(1,2);
-//print_r(get_object_vars($n->getV()))    ;
+//var_dump(get_object_vars($n->getV()));
+//
