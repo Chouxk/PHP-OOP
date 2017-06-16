@@ -5,7 +5,8 @@
  */
 
 /*
- * 抽象工厂模
+ * 探知 - 工厂方法模式
+ * 
  * */
 
 abstract class ApptEncoder
@@ -39,7 +40,7 @@ class BloggsContacEncoder extends ContactEncoder{
     }
 }
 
-/*abstract class CommsManager
+abstract class CommsManager
 {
     abstract function getHeaderText();
     abstract function getApptEncoder();
@@ -57,4 +58,7 @@ class BloggCommsMAnager extends CommsManager
     function getFooterText(){
         return 'BloggsCal footer';
     }
-}*/
+}
+
+$blm = new BloggCommsMAnager();
+echo $t = $blm->getApptEncoder()->encoder();

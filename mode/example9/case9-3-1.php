@@ -4,6 +4,14 @@
  * User: M
  */
 
+/*
+ * 探知 - 工厂方法模式
+ * */
+
+/**
+ * Class ApptEncoder
+ * 产品
+ */
 abstract class ApptEncoder{
     abstract function encode();
 }
@@ -11,20 +19,22 @@ abstract class ApptEncoder{
 class BloggsApptEncoder extends ApptEncoder{
     function encode()
     {
-        // TODO: Implement encode() method.
-        return 'in blog'.'<br/>';
+        return 'Appoinment data encoded in BloggsCal format'.'<br/>';
     }
 }
+
 class MegaApptEncoder extends ApptEncoder{
     function encode()
     {
-        // TODO: Implement encode() method.
-        return 'in mega'.'<br/>';
+        return 'Appoinment data encoded in MegaCal format'.'<br/>';
     }
 }
 
 
-
+/**
+ * Class CommsManager
+ * 创建者
+ */
 class CommsManager
 {
     const BLOGGS = 1;
@@ -50,8 +60,10 @@ class CommsManager
                 return new BloggsApptEncoder();
         }
     }
+
+    //当需求改变，需要添加getFooterText()，新方法，工作量就会更加大。
 }
 
-/*$comm = new CommsManager(CommsManager::BLOGGS);
+$comm = new CommsManager(CommsManager::BLOGGS);
 $t=$comm->getApptEncoder();
-print $t->encode();*/
+print $t->encode();
