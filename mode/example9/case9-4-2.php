@@ -5,9 +5,46 @@
  */
 
 /*
- * 抽象工厂模式
+ * 探知 - 抽象工厂模式
  * */
-require_once 'case9-3-2.php';
+
+abstract class ApptEncoder
+{
+    abstract function encoder();
+}
+abstract class TtdEncoder
+{
+    abstract function encoder();
+}
+abstract class ContactEncoder
+{
+    abstract function encoder();
+}
+
+/**
+ * Class BloggsApptEncoder
+ * Class BloggsTtdEncoder
+ * Class BloggsContacEncoder
+ * 产品1,2,3
+ */
+class BloggsApptEncoder extends ApptEncoder{
+    function encoder(){
+        return 'encode in BlogAppt'.'<br>';
+    }
+}
+
+class BloggsTtdEncoder extends TtdEncoder{
+    function encoder(){
+        return 'encoder in BlogTtd';
+    }
+}
+
+class BloggsContacEncoder extends ContactEncoder{
+    function encoder(){
+        return 'encoder in BloggsContac';
+    }
+}
+
 abstract class CommsManager{
     abstract function getHeaderText();
     abstract function getApptEncoder();
@@ -15,6 +52,11 @@ abstract class CommsManager{
     abstract function getTtdEncoder();
     abstract function getFooterText();
 }
+
+/**
+ * Class BloggsCommsManager
+ * BloogsCal风格创建者
+ */
 class BloggsCommsManager extends CommsManager{
     function getHeaderText(){
         return 'get HeaderText';
